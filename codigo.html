@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ciclos</title>
+<style>
+  /* Estilos CSS */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 300px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+  }
+  body {
+            background-color: rgb(175, 175, 255); /* Cambia el color de fondo a azul marino */
+            color: white; /* Cambia el color del texto a blanco para mayor contraste */
+            margin: 0; /* Elimina el margen del cuerpo */
+            padding: 0; /* Elimina el relleno del cuerpo */
+            font-family: Arial, sans-serif; /* Cambia la fuente del texto */
+        }
+</style>
+</head>
+<body>
+
+<header><div> <img src="LOGO.png" alt="Logo de la página" style="width: 150px; height: auto;"></div>
+
+    <div><h1>Seleccione la opción que desee</h1></div>
+</header>
+<nav>
+  <ul>
+    <li><h1>Operadores</h1></li>
+    <div class="dropdown">
+      <button class="dropbtn">Seleccione</button>
+      <div class="dropdown-content">
+        <a href="#" onclick="calcularAreaTriangulo()">1. Calcular el área de un triángulo</a>
+        <a href="#" onclick="sumarNumeros()">2. Ingresar dos números y sumarlos</a>
+        <a href="#" onclick="elevarAlCuadrado()">3. Número elevado al cuadrado</a>
+        <a href="#" onclick="convertirEurosADolares()">4. Convertidor de euros a dólares</a>
+        <a href="#" onclick="calcularAreaYPerimetroCuadrado()">5. Valor de área y del perímetro de el lado de un cuadrados</a>
+        <a href="#" onclick="calcularAreaYVolumenCilindro()">6. Área y volúmen de un cilindro</a>
+        <a href="#" onclick="calcularLongitudYAreaCircunferencia()">7. Radio, longitud y el área de una  circunferencia</a>
+        <a href="#" onclick="calcularPromedioTresNumeros()">8. Calcular el promedio de tres números</a>
+      </div>
+    </div>
+  </ul>
+</nav>
+
+<nav>
+  <ul>
+    <li><h1>Condicionales</h1></li>
+    <div class="dropdown">
+      <button class="dropbtn">Seleccione</button>
+      <div class="dropdown-content">
+        <a href="#" onclick="verificarPositivoNegativo()">1. Número positivo o negativo</a>
+        <a href="#" onclick="mayorMenor()">2. Mayor y menor</a>
+        <a href="#" onclick="menorMayor()">3. Números enteros positivos menor y mayor</a>
+        <a href="#" onclick="sumarOrestar()">4. Suma o resta</a>
+        <a href="#" onclick="cociente()">5. Encontrar el cociente entre A y B</a>
+        <a href="#" onclick="sumarOMultiplicar()">6. Suma o multiplicación</a>
+        <a href="#" onclick="esBisiesto()">7. Determina si es año biciesto o no</a>
+      </div>
+    </div>
+  </ul>
+</nav>
+
+<nav>
+  <ul>
+    <li><h1>Ciclos</h1></li>
+    <div class="dropdown">
+      <button class="dropbtn">Seleccione</button>
+      <div class="dropdown-content">
+        <a href="#" onclick="multiplosDeTres()">1. Múltiplos de 3 que hay entre 1 y 100</a>
+        <a href="#" onclick="numerosImpares()">2. Números impares entre 0 y 100</a>
+        <a href="#" onclick="numerosPares()">3. Números pares del 1 al 100</a>
+        <a href="#" onclick="cuadradosDel1Al30()">4. Números al cuadrado del 1 al 30</a>
+        <a href="#" onclick="sumaCuadradosCienPrimeros()">5. Suma de los cuadrados de los cien primeros números naturales</a>
+        <a href="#" onclick="mostrarSecuencia()">6. Generar y mostrar todos los números en secuencia ascendente</a>
+        <a href="#" onclick="sumarNumeros()">7. Sumar todos los números que se digiten mientras no sea cero</a>
+      </div>
+    </div>
+  </ul>
+</nav>
+
+</header>
+
+<script>
+  // Funciones para las operaciones
+  function calcularAreaTriangulo() {
+    var base = parseFloat(prompt("Ingrese la base del triángulo:"));
+    var altura = parseFloat(prompt("Ingrese la altura del triángulo:"));
+
+    if (isNaN(base) || isNaN(altura) || base <= 0 || altura <= 0) {
+      alert("Por favor, ingrese valores válidos.");
+      return;
+    }
+
+    var area = (base * altura) / 2;
+    alert("El área del triángulo es: " + area);
+  }
+
+  function sumarNumeros() {
+    var numero1 = parseFloat(prompt("Ingrese el primer número:"));
+    var numero2 = parseFloat(prompt("Ingrese el segundo número:"));
+
+    if (isNaN(numero1) || isNaN(numero2)) {
+      alert("Por favor, ingrese valores válidos.");
+      return;
+    }
+
+    var suma = numero1 + numero2;
+    alert("La suma de los dos números es: " + suma);
+  }
+
+  function elevarAlCuadrado() {
+    var numero = parseFloat(prompt("Ingrese un número:"));
+
+    if (isNaN(numero)) {
+      alert("Por favor, ingrese un valor numérico válido.");
+      return;
+    }
+
+    var cuadrado = Math.pow(numero, 2);
+    alert("El número elevado al cuadrado es: " + cuadrado);
+  }
+
+  function convertirEurosADolares() {
+    var euros = parseFloat(prompt("Ingrese la cantidad de euros:"));
+
+    if (isNaN(euros) || euros < 0) {
+      alert("Por favor, ingrese una cantidad válida.");
+      return;
+    }
+
+    var tipoCambio = 1.15; // Supongamos un tipo de cambio fijo
+    var dolares = euros * tipoCambio;
+    alert(euros + " euros equivalen a " + dolares.toFixed(2) + " dólares.");
+  }
+
+  function calcularAreaYPerimetroCuadrado() {
+    var lado = parseFloat(prompt("Ingrese la longitud del lado del cuadrado:"));
+
+    if (isNaN(lado) || lado <= 0) {
+      alert("Por favor, ingrese un valor válido para el lado del cuadrado.");
+      return;
+    }
+
+    var area = lado * lado;
+    var perimetro = 4 * lado;
+    alert("El área del cuadrado es: " + area + "\nEl perímetro del cuadrado es: " + perimetro);
+  }
+
+  function calcularAreaYVolumenCilindro() {
+    var radio = parseFloat(prompt("Ingrese el radio de la base del cilindro:"));
+    var altura = parseFloat(prompt("Ingrese la altura del cilindro:"));
+
+    if (isNaN(radio) || isNaN(altura) || radio <= 0 || altura <= 0) {
+      alert("Por favor, ingrese valores válidos para el radio y la altura del cilindro.");
+      return;
+    }
+
+    var areaBase = Math.PI * Math.pow(radio, 2);
+    var volumen = areaBase * altura;
+    alert("El área de la base del cilindro es: " + areaBase.toFixed(2) + "\nEl volumen del cilindro es: " + volumen.toFixed(2));
+  }
+
+  function calcularLongitudYAreaCircunferencia() {
+    var radio = parseFloat(prompt("Ingrese el radio de la circunferencia:"));
+
+    if (isNaN(radio) || radio <= 0) {
+      alert("Por favor, ingrese un valor válido para el radio de la circunferencia.");
+      return;
+    }
+
+    var longitud = 2 * Math.PI * radio;
+    var areaCirculoInscrito = Math.PI * Math.pow(radio, 2);
+    alert("La longitud de la circunferencia es: " + longitud.toFixed(2) + "\nEl área del círculo inscrito es: " + areaCirculoInscrito.toFixed(2));
+  }
+
+  function calcularPromedioTresNumeros() {
+    var numero1 = parseFloat(prompt("Ingrese el primer número:"));
+    var numero2 = parseFloat(prompt("Ingrese el segundo número:"));
+    var numero3 = parseFloat(prompt("Ingrese el tercer número:"));
+
+    if (isNaN(numero1) || isNaN(numero2) || isNaN(numero3)) {
+      alert("Por favor, ingrese valores numéricos válidos.");
+      return;
+    }
+
+    var promedio = (numero1 + numero2 + numero3) / 3;
+    alert("El promedio de los tres números es: " + promedio.toFixed(2));
+  }
+</script>
+
+<script>
+  function verificarPositivoNegativo() {
+    var numero = parseFloat(prompt("Ingrese un número:"));
+
+    if (isNaN(numero)) {
+      alert("Por favor, ingrese un valor numérico válido.");
+      return;
+    }
+
+    if (numero > 0) {
+      alert("El número ingresado es positivo.");
+    } else if (numero < 0) {
+      alert("El número ingresado es negativo.");
+    } else {
+      alert("El número ingresado es cero.");
+    }
+  }
+
+  function mayorMenor() {
+    var numero1 = parseFloat(prompt("Ingrese el primer número:"));
+    var numero2 = parseFloat(prompt("Ingrese el segundo número:"));
+
+    if (isNaN(numero1) || isNaN(numero2)) {
+      alert("Por favor, ingrese valores numéricos válidos.");
+      return;
+    }
+
+    if (numero1 > numero2) {
+      alert("El primer número es mayor que el segundo.");
+    } else if (numero1 < numero2) {
+      alert("El segundo número es mayor que el primero.");
+    } else {
+      alert("Los dos números son iguales.");
+    }
+  }
+
+  function menorMayor() {
+    var numero1 = parseInt(prompt("Ingrese el primer número:"));
+    var numero2 = parseInt(prompt("Ingrese el segundo número:"));
+    var numero3 = parseInt(prompt("Ingrese el tercer número:"));
+
+    if (isNaN(numero1) || isNaN(numero2) || isNaN(numero3)) {
+      alert("Por favor, ingrese valores numéricos válidos.");
+      return;
+    }
+
+    var menor = Math.min(numero1, numero2, numero3);
+    var mayor = Math.max(numero1, numero2, numero3);
+
+    alert("El número menor es: " + menor + "\nEl número mayor es: " + mayor);
+  }
+
+  function sumarOrestar() {
+    var A = parseFloat(prompt("Ingrese el primer número (A):"));
+    var B = parseFloat(prompt("Ingrese el segundo número (B):"));
+
+    if (isNaN(A) || isNaN(B)) {
+      alert("Por favor, ingrese valores numéricos válidos.");
+      return;
+    }
+
+    if (A < B) {
+      alert("La suma de los números es: " + (A + B));
+    } else {
+      alert("La resta de los números es: " + (A - B));
+    }
+  }
+
+  function cociente() {
+    var A = parseFloat(prompt("Ingrese el dividendo (A):"));
+    var B = parseFloat(prompt("Ingrese el divisor (B):"));
+
+    if (isNaN(A) || isNaN(B)) {
+      alert("Por favor, ingrese valores numéricos válidos.");
+      return;
+    }
+
+    if (B === 0) {
+      alert("La división por cero no está definida.");
+    } else {
+      alert("El cociente entre A y B es: " + (A / B));
+    }
+  }
+
+  function sumarOMultiplicar() {
+    var A = parseFloat(prompt("Ingrese el primer número (A):"));
+    var B = parseFloat(prompt("Ingrese el segundo número (B):"));
+
+    if (isNaN(A) || isNaN(B)) {
+      alert("Por favor, ingrese valores numéricos válidos.");
+      return;
+    }
+
+    if (A < 0 || B < 0) {
+      alert("La suma de los números es: " + (A + B));
+    } else {
+      alert("La multiplicación de los números es: " + (A * B));
+    }
+  }
+
+  function esBisiesto() {
+    var year = parseInt(prompt("Ingrese un año:"));
+
+    if (isNaN(year)) {
+      alert("Por favor, ingrese un valor numérico válido para el año.");
+      return;
+    }
+
+    if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+      alert("El año " + year + " es bisiesto.");
+    } else {
+      alert("El año " + year + " no es bisiesto.");
+    }
+  }
+</script>
+
+<script>
+  // Funciones para los ciclos
+  function multiplosDeTres() {
+    document.write("<h2>Múltiplos de 3 que hay entre 1 y 100:</h2>");
+    for (var i = 1; i <= 100; i++) {
+      if (i % 3 === 0) {
+        document.write(i + "<br>");
+      }
+    }
+  }
+
+  function numerosImpares() {
+    document.write("<h2>Números impares entre 0 y 100:</h2>");
+    for (var i = 1; i <= 100; i += 2) {
+      document.write(i + "<br>");
+    }
+  }
+
+  function numerosPares() {
+    document.write("<h2>Números pares del 1 al 100:</h2>");
+    for (var i = 2; i <= 100; i += 2) {
+      document.write(i + "<br>");
+    }
+  }
+
+  function cuadradosDel1Al30() {
+    document.write("<h2>Números al cuadrado del 1 al 30:</h2>");
+    for (var i = 1; i <= 30; i++) {
+      document.write(i + " al cuadrado es " + Math.pow(i, 2) + "<br>");
+    }
+  }
+
+  function sumaCuadradosCienPrimeros() {
+    var suma = 0;
+    for (var i = 1; i <= 100; i++) {
+      suma += Math.pow(i, 2);
+    }
+    alert("La suma de los cuadrados de los cien primeros números naturales es: " + suma);
+  }
+
+  function mostrarSecuencia() {
+    var num1 = parseInt(prompt("Ingrese el primer número:"));
+    var num2 = parseInt(prompt("Ingrese el segundo número:"));
+
+    if (isNaN(num1) || isNaN(num2) || num1 >= num2) {
+      alert("Por favor, ingrese dos números naturales en orden ascendente.");
+      return;
+    }
+
+    document.write("<h2>Secuencia entre " + num1 + " y " + num2 + ":</h2>");
+    for (var i = num1; i <= num2; i++) {
+      document.write(i + "<br>");
+    }
+  }
+
+  function sumarNumeros() {
+    var suma = 0;
+    var numero = parseInt(prompt("Ingrese un número (0 para terminar):"));
+    while (numero !== 0) {
+      suma += numero;
+      numero = parseInt(prompt("Ingrese otro número (0 para terminar):"));
+    }
+    alert("La suma de los números ingresados es: " + suma);
+  }
+</script>
+
+</body>
+</html>
